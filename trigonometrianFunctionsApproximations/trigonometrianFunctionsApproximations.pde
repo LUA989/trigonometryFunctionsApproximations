@@ -1,5 +1,5 @@
 void setup() {
-  println();
+  println(tanApprox(PI / 2));
 }
 
 void draw() {
@@ -26,7 +26,9 @@ float cosApprox(float x) {
 // {|tanApprox(x) - tan(x)|} \ infinity <= 0.053
 
 float tanApprox(float x) {
-  return sinApprox(x) / cosApprox(x);
+  float cosAppr = cosApprox(x);
+  float output = sinApprox(x) / cosAppr;
+  if(cosAppr == 0.0) return Float.POSITIVE_INFINITY; else return output;
 }
 
 float sign(float x) {
